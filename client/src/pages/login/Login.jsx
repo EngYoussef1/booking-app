@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
 
@@ -33,17 +33,20 @@ const Login = () => {
 
   return (
     <div className="login">
+      <span className="registerTitle">Login</span>
       <div className="lContainer">
+      <label>Username</label>
         <input
           type="text"
-          placeholder="username"
+          placeholder="Enter Your Username..."
           id="username"
           onChange={handleChange}
           className="lInput"
         />
+        <label>password</label>
         <input
           type="password"
-          placeholder="password"
+          placeholder="Enter Your Password..."
           id="password"
           onChange={handleChange}
           className="lInput"
@@ -51,6 +54,11 @@ const Login = () => {
         <button disabled={loading} onClick={handleClick} className="lButton">
           Login
         </button>
+        <button className="registerLoginButton">
+        <Link to="/Register" className="linkRegister">
+          Register
+        </Link>
+      </button>
         {error && <span>{error.message}</span>}
       </div>
     </div>

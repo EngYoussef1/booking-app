@@ -3,12 +3,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  
+ 
 }
 
 .lContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 20px;
 }
 
 .lInput{
@@ -19,14 +23,21 @@
 .lButton {
   border: none;
   padding: 10px 20px;
-  background-color: #0071c2;
+  background-color: #31abf2;
   color: white;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+  margin: 20px 0px;
 }
 
 .lButton:disabled{
   background-color: #0071c28c;
   cursor: not-allowed;
+}
+.linkRegister{
+  color: rgb(255, 255, 255); 
+  text-decoration: none;
+  display: inline-block; 
+  
 }

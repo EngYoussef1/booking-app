@@ -7,8 +7,7 @@
     background: linear-gradient(
         rgba(255, 255, 255, 0.5),
         rgba(255, 255, 255, 0.5)
-      ),
-      url(https://images.pexels.com/photos/317356/pexels-photo-317356.jpeg?cs=srgb&dl=pexels-lukas-317356.jpg&fm=jpg);
+    );
     background-size: cover;
     position: relative;
   }
@@ -30,7 +29,7 @@
   .registerForm input {
     padding: 10px;
     background-color: white;
-    border: none;
+    /* border: none; */
   }
   .registerPlan {
     display: flex;
@@ -46,7 +45,7 @@
   .registerButton {
     margin-top: 20px;
     cursor: pointer;
-    background-color: teal;
+    background-color: #31abf2;
     border: none;
     color: white;
     border-radius: 10px;
@@ -57,11 +56,17 @@
     position: absolute;
     top: 10px;
     right: 20px;
-    background-color: lightcoral;
+    background-color: #31abf2;
     border: none;
     color: white;
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
+  }
+  .linkLogin{
+    color: rgb(255, 255, 255); 
+    text-decoration: none;
+    display: inline-block; 
+    
   }
   

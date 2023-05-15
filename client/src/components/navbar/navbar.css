@@ -27,3 +27,9 @@
   color: #000000;
   border-radius: 10px;
 }
+.link{
+  color: rgb(0, 0, 0); 
+  text-decoration: none;
+  display: inline-block; 
+  
+}

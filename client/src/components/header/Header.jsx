@@ -64,7 +64,7 @@ const Header = ({ type }) => {
         <div className="headerList">
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
-            <span>Hoteles</span>
+            <span>stays</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
@@ -113,9 +113,9 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                >{`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(
                   dates[0].endDate,
-                  "MM/dd/yyyy"
+                  "dd/MM/yyyy"
                 )}`}</span>
                 {openDate && (
                   <DateRange

@@ -53,31 +53,21 @@ export default function Register() {
           placeholder="Enter Your Password..."
           onChange={(event) => setPassword(event.target.value)}
         />
-        <label>Plan</label>
+        <label></label>
         <div className="registerPlan">
           <span>
-            <label htmlFor="registerNormal">Normal</label>
-            <input
-              type="radio"
-              name="registerPlan"
-              id="registerNormal"
-              onClick={() => setPlan("normal")}
-            />
+            <label htmlFor="registerNormal"></label>
+            
           </span>
           <span>
-            <label htmlFor="registerPremium">Premium</label>
-            <input
-              type="radio"
-              name="registerPlan"
-              id="registerPremium"
-              onClick={() => setPlan("premium")}
-            />
+            <label htmlFor="registerPremium"></label>
+            
           </span>
         </div>
         <button className="registerButton">Register</button>
       </form>
       <button className="registerLoginButton">
-        <Link to="/login" className="link">
+        <Link to="/login" className="linkLogin">
           Login
         </Link>
       </button>
