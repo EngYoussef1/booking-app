@@ -11,7 +11,6 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [plan, setPlan] = useState("normal");
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [phone, setPhone] = useState("");
@@ -86,7 +85,7 @@ export default function Register() {
       </button>
       {error && (
         <span style={{ color: "red", marginTop: "10px" }}>
-          The Registeration Failed!!!!
+          The Registration Failed!!!!
         </span>
       )}
     </div>
