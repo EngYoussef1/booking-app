@@ -12,6 +12,9 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [plan, setPlan] = useState("normal");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [phone, setPhone] = useState("");
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
@@ -24,7 +27,9 @@ export default function Register() {
         username,
         email,
         password,
-        plan,
+        country,
+        city,
+        phone
       });
       navigate("/login");
     } catch (err) {
@@ -53,17 +58,25 @@ export default function Register() {
           placeholder="Enter Your Password..."
           onChange={(event) => setPassword(event.target.value)}
         />
-        <label></label>
-        <div className="registerPlan">
-          <span>
-            <label htmlFor="registerNormal"></label>
-            
-          </span>
-          <span>
-            <label htmlFor="registerPremium"></label>
-            
-          </span>
-        </div>
+        <label>Country</label>
+        <input
+          type="text"
+          placeholder="Enter Your Country..."
+          onChange={(event) => setCountry(event.target.value)}
+        />
+        <label>City</label>
+        <input
+          type="text"
+          placeholder="Enter Your City..."
+          onChange={(event) => setCity(event.target.value)}
+        />
+        <label>Phone</label>
+        <input
+          type="text"
+          placeholder="Enter Your Phone..."
+          onChange={(event) => setPhone(event.target.value)}
+           />
+
         <button className="registerButton">Register</button>
       </form>
       <button className="registerLoginButton">
