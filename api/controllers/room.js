@@ -20,7 +20,7 @@ export const createRoom = async (req, res, next) => {
     next(err);
   }
 };
-
+//200 referee to process success
 export const updateRoom = async (req, res, next) => {
   try {
     const updatedRoom = await Room.findByIdAndUpdate(
