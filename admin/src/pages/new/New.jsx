@@ -16,27 +16,58 @@ const New = ({ inputs, title }) => {
   const handleClick = async (e) => {
     e.preventDefault();
     const data = new FormData();
-    data.append("file", file);
-    data.append("upload_preset", "upload");
-    try {
-      const uploadRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/dai4zdkiw/image/upload",
-        data
-      );
-
-      const { url } = uploadRes.data;
-
-      console.log(uploadRes.data,url)
-
-      const newUser = {
-        ...info,
-        img: url,
-      };
-
-      await axios.post("/auth/register", newUser);
-    } catch (err) {
-      console.log(err);
+    if (file) {
+      data.append("file", file);
+      data.append("upload_preset", "upload");
+      try {
+        const uploadRes = await axios.post(
+          "https://api.cloudinary.com/v1_1/dai4zdkiw/image/upload",
+          data
+        );
+        const { url } = uploadRes.data;
+        console.log(uploadRes.data, url);
+        const newUser = {
+          ...info,
+          img: url,
+        };
+        await axios.post("/auth/register", newUser);
+      } catch (error) {
+        // Handle error
+        console.log(error);
+      }
+    } else {
+      const newUser = { ...info };
+      try {
+        await axios.post("/auth/register", newUser);
+      } catch (error) {
+        // Handle error
+        console.log(error);
+      }
     }
+
+    // const data = new FormData();
+    // data.append("file", file);
+    // data.append("upload_preset", "upload");
+    // try {
+    
+    //   const uploadRes = await axios.post(
+    //     "https://api.cloudinary.com/v1_1/dai4zdkiw/image/upload",
+    //     data
+    //   );
+
+    //   const { url } = uploadRes.data;
+
+    //   console.log(uploadRes.data,url)
+
+    //   const newUser = {
+    //     ...info,
+    //     img: url,
+    //   };
+
+    //   await axios.post("/auth/register", newUser);
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
   console.log(info);

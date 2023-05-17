@@ -7,18 +7,33 @@ import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlin
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useFetch from "../../hooks/useFetch";
 const Widget = ({ type }) => {
 
   //fetch data
- 
-  
 
+  const useItemCount  = (path) => {
+    const { data, loading, error } = useFetch(`/${path}`);
+    const [itemCount, setItemCount] = useState(0);
+
+    useEffect(() => {
+      if (data) {
+        setItemCount(data.length);
+      }
+    }, [data]);
+
+    return itemCount;
+  };
+  
+  //const { data: res } = useFetch(`/${path}`);
+
+  const userCount=useItemCount("users")
+  const hotelCount=useItemCount("hotels")
+  const roomCount=useItemCount("rooms")
 
   let data;
-
   //temporary
-  const amount = 100;
-  const diff = 20;
+ 
 
   switch (type) {
     case "user":
@@ -26,6 +41,7 @@ const Widget = ({ type }) => {
         title: "USERS",
         isMoney: false,
         link: "See all users",
+        count:userCount,
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -42,6 +58,7 @@ const Widget = ({ type }) => {
         title: "Hotels",
         isMoney: false,
         link: "View all hotels",
+        count:hotelCount,
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -58,6 +75,7 @@ const Widget = ({ type }) => {
         title: "Rooms",
         isMoney: true,
         link: "View all rooms",
+        count:roomCount,
         icon: (
           <MonetizationOnOutlinedIcon
             className="icon"
@@ -76,17 +94,13 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-           {amount}
+          {data.count}
         </span>
         <Link to={`/${data.title}`}>
-        <span className="link">{data.link}</span>
+          <span className="link">{data.link}</span>
         </Link>
       </div>
       <div className="right">
-        <div className="percentage positive">
-          <KeyboardArrowUpIcon />
-          {diff} %
-        </div>
         {data.icon}
       </div>
     </div>
