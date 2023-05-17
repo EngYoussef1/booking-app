@@ -3,7 +3,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "/hotels/countByCity?cities=cairo,Tanta,Samanod"
+    "/hotels/countByCity?cities=cairo,tanta,Samanod"
   );
 
   return (
