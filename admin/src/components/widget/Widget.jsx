@@ -4,8 +4,16 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
-
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 const Widget = ({ type }) => {
+
+  //fetch data
+ 
+  
+
+
   let data;
 
   //temporary
@@ -29,11 +37,11 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "order":
+    case "hotel":
       data = {
-        title: "ORDERS",
+        title: "Hotels",
         isMoney: false,
-        link: "View all orders",
+        link: "View all hotels",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -45,11 +53,11 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "earning":
+    case "room":
       data = {
-        title: "EARNINGS",
+        title: "Rooms",
         isMoney: true,
-        link: "View net earnings",
+        link: "View all rooms",
         icon: (
           <MonetizationOnOutlinedIcon
             className="icon"
@@ -58,22 +66,7 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "balance":
-      data = {
-        title: "BALANCE",
-        isMoney: true,
-        link: "See details",
-        icon: (
-          <AccountBalanceWalletOutlinedIcon
-            className="icon"
-            style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
-            }}
-          />
-        ),
-      };
-      break;
+
     default:
       break;
   }
@@ -83,9 +76,11 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+           {amount}
         </span>
+        <Link to={`/${data.title}`}>
         <span className="link">{data.link}</span>
+        </Link>
       </div>
       <div className="right">
         <div className="percentage positive">
