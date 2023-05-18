@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user ,dispatch: authDispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
@@ -18,6 +18,13 @@ const Navbar = () => {
       navigate("/register");
     }
   };
+  const handleLogoutClick = () => {
+    if (user) {
+      authDispatch({ type: "LOGOUT" });
+      navigate("/")
+      
+    }
+  };
 
   return (
     <div className="navbar">
@@ -26,7 +33,12 @@ const Navbar = () => {
           <span className="logo">Booking App</span>
         </Link>
         {user ? (
-          user.username
+          <div className="navItems">
+            <span>{user.username}</span>
+            <button onClick={handleLogoutClick} className="navButton">
+              Logout
+            </button>
+          </div>
         ) : (
           <div className="navItems">
             <button onClick={handleRegisterClick} className="navButton">
